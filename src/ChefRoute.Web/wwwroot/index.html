@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChefRoute · Coordinación de recetas</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🍳</text></svg>">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="cabecera__contenido">
+      <h1><span aria-hidden="true">👨‍🍳</span> ChefRoute</h1>
+      <p>Grafo dirigido de tareas de cocina: detecta recetas imposibles, ordena la preparación y simula la ronda del chef.</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="tarjeta entrada" aria-labelledby="titulo-entrada">
+      <h2 id="titulo-entrada">1. Receta (JSON)</h2>
+
+      <div class="barra">
+        <label class="campo">
+          <span>Ejemplo</span>
+          <select id="selectorEjemplo">
+            <option value="ejemplo">Pasta Bolognesa (válida)</option>
+            <option value="ciclica">Pastel Imposible (con ciclo)</option>
+          </select>
+        </label>
+
+        <label class="boton boton--secundario" for="entradaArchivoJson">Abrir archivo .json</label>
+        <input id="entradaArchivoJson" type="file" accept=".json,application/json" hidden>
+
+        <label class="campo campo--corto">
+          <span>Vueltas de la ronda</span>
+          <input id="campoVueltas" type="number" min="1" max="10" value="2">
+        </label>
+      </div>
+
+      <textarea id="areaTextoJson" spellcheck="false" aria-label="JSON de la receta" placeholder='{ "plato": "...", "tareas": [], "dependencias": [] }'></textarea>
+
+      <div class="barra barra--fin">
+        <span class="ayuda">Atajo: Ctrl + Enter</span>
+        <button id="botonAnalizar" class="boton" type="button">Analizar receta</button>
+      </div>
+
+      <p id="mensajeDeError" class="error" role="alert" hidden></p>
+    </section>
+
+    <div id="panelResultados" hidden>
+      <section class="tarjeta" aria-labelledby="titulo-estado">
+        <h2 id="titulo-estado">2. Detección de recetas imposibles (DFS)</h2>
+        <div class="estado">
+          <strong id="nombrePlato" class="estado__plato"></strong>
+          <span id="insigniaEstado" class="insignia"></span>
+        </div>
+        <p id="mensajeEstado" class="estado__mensaje"></p>
+        <ul id="listaCiclo" class="chips" aria-label="Ciclo detectado" hidden></ul>
+      </section>
+
+      <section class="tarjeta" aria-labelledby="titulo-grafo">
+        <h2 id="titulo-grafo">Grafo de dependencias</h2>
+        <p class="ayuda">Cada flecha A → B indica que A debe terminar antes de B; el número es el tiempo en minutos.</p>
+        <div id="contenedorGrafo" class="lienzo"></div>
+      </section>
+
+      <section id="seccionOrden" class="tarjeta" aria-labelledby="titulo-orden">
+        <h2 id="titulo-orden">3. Secuencia de preparación (orden topológico)</h2>
+        <ol id="listaOrden" class="orden"></ol>
+      </section>
+
+      <section id="seccionRonda" class="tarjeta" aria-labelledby="titulo-ronda">
+        <h2 id="titulo-ronda">4. Ronda de supervisión (lista circular)</h2>
+        <div class="barra">
+          <button id="botonReproducir" class="boton" type="button">▶ Reproducir</button>
+          <button id="botonSiguientePaso" class="boton boton--secundario" type="button">⏭ Paso</button>
+          <button id="botonReiniciar" class="boton boton--secundario" type="button">⟲ Reiniciar</button>
+          <label class="campo campo--corto">
+            <span>Velocidad</span>
+            <select id="selectorVelocidad">
+              <option value="1500">Lenta</option>
+              <option value="900" selected>Normal</option>
+              <option value="400">Rápida</option>
+            </select>
+          </label>
+        </div>
+        <p id="mensajeEstadoRonda" class="estado__mensaje" aria-live="polite"></p>
+        <div class="ronda">
+          <div id="lienzoRonda" class="lienzo"></div>
+          <ol id="bitacoraRonda" class="bitacora" aria-label="Bitácora de la ronda"></ol>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pie">ChefRoute · C# .NET 8 · DFS recursivo, listas enlazadas propias</footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

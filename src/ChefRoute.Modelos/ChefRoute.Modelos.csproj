@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChefRoute.Estructuras\ChefRoute.Estructuras.csproj" />
+  </ItemGroup>
+
+</Project>

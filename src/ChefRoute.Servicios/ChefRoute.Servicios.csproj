@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChefRoute.Algoritmos\ChefRoute.Algoritmos.csproj" />
+    <ProjectReference Include="..\ChefRoute.Entrada\ChefRoute.Entrada.csproj" />
+    <ProjectReference Include="..\ChefRoute.Estructuras\ChefRoute.Estructuras.csproj" />
+    <ProjectReference Include="..\ChefRoute.Grafos\ChefRoute.Grafos.csproj" />
+    <ProjectReference Include="..\ChefRoute.Modelos\ChefRoute.Modelos.csproj" />
+    <ProjectReference Include="..\ChefRoute.Resultados\ChefRoute.Resultados.csproj" />
+  </ItemGroup>
+
+</Project>

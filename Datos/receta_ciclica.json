@@ -1,0 +1,11 @@
+{
+  "plato": "Pastel Imposible",
+  "tareas": ["Preparar Masa", "Hornear", "Enfriar", "Decorar", "Servir"],
+  "dependencias": [
+    { "desde": "Preparar Masa", "hacia": "Hornear", "tiempoMinutos": 25 },
+    { "desde": "Hornear", "hacia": "Enfriar", "tiempoMinutos": 40 },
+    { "desde": "Enfriar", "hacia": "Preparar Masa", "tiempoMinutos": 5 },
+    { "desde": "Enfriar", "hacia": "Decorar", "tiempoMinutos": 15 },
+    { "desde": "Decorar", "hacia": "Servir", "tiempoMinutos": 3 }
+  ]
+}

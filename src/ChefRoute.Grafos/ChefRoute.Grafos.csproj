@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChefRoute.Estructuras\ChefRoute.Estructuras.csproj" />
+    <ProjectReference Include="..\ChefRoute.Excepciones\ChefRoute.Excepciones.csproj" />
+    <ProjectReference Include="..\ChefRoute.Modelos\ChefRoute.Modelos.csproj" />
+  </ItemGroup>
+
+</Project>

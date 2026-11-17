@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChefRoute.Excepciones\ChefRoute.Excepciones.csproj" />
+    <ProjectReference Include="..\ChefRoute.Grafos\ChefRoute.Grafos.csproj" />
+  </ItemGroup>
+
+</Project>

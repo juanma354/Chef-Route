@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChefRoute.Algoritmos\ChefRoute.Algoritmos.csproj" />
+    <ProjectReference Include="..\ChefRoute.Entrada\ChefRoute.Entrada.csproj" />
+    <ProjectReference Include="..\ChefRoute.Excepciones\ChefRoute.Excepciones.csproj" />
+    <ProjectReference Include="..\ChefRoute.Grafos\ChefRoute.Grafos.csproj" />
+    <ProjectReference Include="..\ChefRoute.Servicios\ChefRoute.Servicios.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\Datos\*.json" Link="Datos\%(Filename)%(Extension)">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
